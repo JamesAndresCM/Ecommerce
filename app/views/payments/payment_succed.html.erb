@@ -1,0 +1,22 @@
+<div class="col-md-10">
+  <h1>Tu pago ha sido procesado correctamente</h1>
+  <table class="table table table-sm table-responsive">
+  <thead>
+    <tr>
+      <th>Nombre Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shopping_cart.in_shopping_carts.each do |i_sc| %>
+      <tr>
+        <td><%= i_sc.product.name.capitalize %></td>
+        <td><%= number_to_currency(i_sc.product.pricing) %></td>
+        <td><%= i_sc.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

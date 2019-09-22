@@ -8,6 +8,11 @@
 #      rails_direct_uploads POST /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :categories
+    resources :products
+  end
   #devise_for :users
 
   devise_for :users, controllers: { omniauth_callbacks: "auth/omniauth_callbacks"},
@@ -18,6 +23,17 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: "home#index"
   end
+
+  resources :categories, only: [:index]
+  resources :products, only: [:index, :show]
+  resources :in_shopping_carts, only: [:destroy]
+  get "carrito", to: "shopping_carts#show"
+  delete "carrito/remove/:product_id", as: :remove_cart, to: "shopping_carts#destroy"
+  post "add/:product_id", as: :add_to_cart, to: "in_shopping_carts#create" 
+  post "pagar", to: "payments#create",as: :payment_product
+  post "payments/cards", to: "payments#process_card", as: :payment_card
+  get "checkout", to: "payments#checkout"
+  get "succeed", to: "payments#payment_succed"
 
   root to: "main#index"
   resources :main, only: [:index, :new, :create]

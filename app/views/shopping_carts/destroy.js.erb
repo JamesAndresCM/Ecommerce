@@ -1,0 +1,7 @@
+$("#del_product_<%= @product_cart_id%>").remove()
+$("#cart").html("Carrito <%= number_to_currency(@shopping_cart.total) %> <i class=\"fa fa-shopping-cart\"></i>");
+<% if @shopping_cart.total == 0 %>
+    window.location.replace("http://localhost:3000/carrito");
+<% else %>
+  $("#pago_<%= @shopping_cart.id %>").replaceWith('<strong id=\"pago_<%= @shopping_cart.id %>\">Total a pagar: <%= number_to_currency(@shopping_cart.total) %></strong>')
+<% end %>

@@ -1,0 +1,27 @@
+<%= link_to  "Pagar con Tarjeta de Credito", "#collapseExample", "data-toggle": "collapse", class: "mt-2 btn-primary btn", "aria-expanded":"false","aria-controls": "coll    apseExample"
+%>
+<div class="collapse card col-md-6 mt-2" id="collapseExample">
+    <h3>Paga con tu Tarjeta</h3>
+    <%= form_tag payment_card_path, method: :post do %>
+      <%= email_field_tag :email, nil, class: "form-control", placeholder: "Email", required: true %>
+      <br>
+      <%= text_field_tag :number, nil, class: "form-control", placeholder: "Numero de tarjeta", required: true %>
+      <div class="mt-2 form-row">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+        <label>Mes</label>
+          <%= select_tag :expire_month, options_for_select((1..12).to_a), class: "form-control" %>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+        <label>Año</label>
+          <%= select_tag :expire_year, options_for_select((2018..2050).to_a), class: "form-control" %>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+        <label>CVV</label>
+        <%= number_field_tag :cvv2, nil, class: "form-control", placeholder: "CVV", required: true %>
+        </div>
+      </div>
+      <%= content_tag :button, type: :submit, class: "mt-2 mb-2 btn btn-primary" do %>
+        Pagar
+      <% end %>
+  <% end %>
+</div>

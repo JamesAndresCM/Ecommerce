@@ -1,0 +1,33 @@
+<% if @shopping_cart.total > 0 %>
+<strong id="pago_<%= @shopping_cart.id %>">Total a pagar: <%= number_to_currency(@shopping_cart.total) %></strong>
+<table class="table table-bordered table-striped table-hover">
+ <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Total</th>
+      <th>Eliminar producto del carro</th>
+    </tr>
+    <% @shopping_cart.in_shopping_carts.each do |i_sc| %>
+    <% @product_cart_id = i_sc.product.id %>
+    <tbody>
+      <tr id="del_product_<%= @product_cart_id %>">
+      <td><%= i_sc.product.name.capitalize %></td>
+      <td><%= image_tag(i_sc.product.img.url,style: "width: 50px; heigth: 50px;") %></td>
+      <td><%= i_sc.quantity %></td>
+      <td><%= number_to_currency(i_sc.product.pricing) %></td>
+      <td><%= number_to_currency(i_sc.product.pricing * i_sc.quantity) %></td>
+      <td><%= link_to "Eliminar del carro",remove_cart_path(@product_cart_id), remote: true, method: :delete, class: 'btn btn-danger' %></td>
+    </tr>
+  </tbody>
+  </thead>
+  <% end %>
+</table>
+
+
+<%= render "payments/buttons" %>
+<% else %>
+  <h4>Tu carro se encuentra vacio por favor agrega algun producto</h4>
+<% end %>

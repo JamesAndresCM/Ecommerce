@@ -1,6 +1,5 @@
 <nav class="sticky-top navbar navbar-expand-lg navbar-dark nav-color">
   <a class="navbar-brand" href="<%= root_path %>">
-    <img src="#" width="30" height="30">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon">
@@ -19,14 +18,32 @@
             <a class="nav-link" href="<%= edit_user_registration_path %>">Edit Account 
               <i style="color: white" class="fa fa-pencil-square-o"></i>
             </a>
-        </li>
-      </li>
-       <li class="nav-item">
-          <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">Logout 
-            <i class="fa fa-sign-out" style="color: red"></i>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">Ordenes 
+              <i class="fa fa-check-circle"></i>
+            </a>
+           <li class="nav-item">
+            <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">Descuentos
+              <i class="fa fa-money"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">Logout 
+              <i class="fa fa-sign-out" style="color: red"></i>
+            </a>
+          </li>
+        <% end %>
+      <li class="nav-item">
+          <a class="nav-link" id="cart" href="<%= carrito_path %>">Carrito 
+            <% if @shopping_cart.payed? %>
+              0
+            <% else%>
+              <%= number_to_currency(@shopping_cart.total) %>
+            <% end %>
+            <i class="fa fa-shopping-cart"></i>
           </a>
         </li>
-        <% end %>
     </ul>
   </div>
 </nav>

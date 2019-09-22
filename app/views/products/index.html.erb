@@ -1,0 +1,15 @@
+<h1 style="text-align: center">Productos</h1>
+  <div class="container">
+    <div class="card-columns">
+      <% cache @product do %>
+        <%= render @product , cached: true%>
+      <% end %>
+  </div>
+</div>
+<br>
+
+<div class="mt-2">
+  <% unless @product.empty? or @prodcut.nil? %>
+    <%= will_paginate @product, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -46,6 +46,17 @@ gem 'client_side_validations-simple_form'
 gem 'animate-rails'
 gem 'mail_form'
 gem 'rename'
+gem 'draper'
+gem 'paypal-sdk-rest'
+gem 'aasm'
+gem 'credit_card_validator'
+gem 'money-rails', '~>1.12'
+gem 'money'
+gem 'sweet-alert-confirm', git: 'https://github.com/mois3x/sweet-alert-rails-confirm'
+gem 'rails-assets-bootstrap-sweetalert', source: 'https://rails-assets.org'
+gem 'will_paginate-bootstrap4'
+gem 'ancestry'
+gem 'jquery-datatables'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

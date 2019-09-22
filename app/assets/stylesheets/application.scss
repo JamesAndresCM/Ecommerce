@@ -1,6 +1,12 @@
 @import "bootstrap";
 @import "gritter";
 @import "font-awesome";
+@import "bootstrap-sweetalert";
+@import "datatables";
+
+.sweet-alert button.cancel {
+  @extend .btn-danger;
+}
 
 .img_nav_profile{
   width: 40px;
@@ -92,3 +98,4 @@ $custom-file-text: (
   opacity: 1;
   visibility: visible;
 }
+

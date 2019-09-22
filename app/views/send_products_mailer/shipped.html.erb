@@ -1,0 +1,22 @@
+<h1>Gracias por su compra</h1>
+
+<table class="table-responsive">
+<thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+    </tr>
+</thead>
+<% @order.in_shopping_carts.each do |order| %>
+<tbody>
+<tr>
+  <td><%= order.product.name %></td>
+  <td><%= order.quantity %></td>
+  <td><%= "%.2f" % order.product.pricing %></td>
+</tr>
+</tbody>
+<% end %>
+</table>
+
+<strong>Total: <%= number_to_currency(@order.total) %></strong>

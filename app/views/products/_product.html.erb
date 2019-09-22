@@ -1,0 +1,13 @@
+<div class="card">
+      <%= product.decorate.image_card('card-img-top') %>
+      <div class="card-body">
+        <h5 class="card-title"><%= product.name %></h5>
+        <p class="card-text"><%= product.description %></p>
+        <p class="card-text"><small class="text-muted"><%= number_to_currency(product.pricing) %></small></p>
+      </div>
+      <div class="card-footer">
+         <p>
+          <%= render "in_shopping_carts/form", product: product.id %>
+        </p>
+      </div>
+  </div>

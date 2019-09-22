@@ -1,0 +1,2 @@
+<%= add_gritter("Nuevo producto añadido: #{@product.name.capitalize}",:image => :success, :title => "Carrito Actualizado" ) %>
+$("#cart").html("Carrito <%= number_to_currency(@shopping_cart.total) %> <i class=\"fa fa-shopping-cart\"></i>");

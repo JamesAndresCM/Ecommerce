@@ -8,7 +8,7 @@ class Main < MailForm::Base
   # in ActionMailer accepts.
   def headers
     {
-      subject: "Base Rails Message",
+      subject: "Ecommerce Rails Message",
       to: "user@domain.com",
       from: %("#{name}" <#{email}>)
     }

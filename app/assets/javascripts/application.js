@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
@@ -19,6 +19,9 @@
 //= require check_image
 //= require rails.validations
 //= require rails.validations.simple_form.bootstrap4
+//= require bootstrap-sweetalert
+//= require sweet-alert-confirm
+//= require datatables
 //= require activestorage
 //= require_tree .
 

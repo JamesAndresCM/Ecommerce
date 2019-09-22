@@ -7,6 +7,6 @@ module ApplicationHelper
   end
 
   def title_default
-    @page_title = "Base Rails"
+    @page_title = "Ecommerce Rails"
   end
 end
