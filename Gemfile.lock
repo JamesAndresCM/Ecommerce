@@ -209,7 +209,7 @@ GEM
       xml-simple
     pg (1.1.4)
     popper_js (1.14.5)
-    puma (3.12.2)
+    puma (3.12.4)
     rack (2.1.1)
     rack-protection (2.0.7)
       rack
